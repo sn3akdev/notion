@@ -1,0 +1,714 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Epidemiologia</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="07bc1edd-7e1d-4322-8321-9402b35412ef" class="page sans"><header><h1 class="page-title">Epidemiologia</h1></header><div class="page-body"><p id="52aad371-7a0e-45c4-8919-88fa31d356b1" class="">
+<span style="border-bottom:0.05em solid"><strong>Processo saúde-doença</strong></span><strong>
+
+</strong>Vem do modo como as pessoas vivem, adoecem e morrem. As influências ou causas sobre este processo podem ser:</p><ul id="e660183e-22cf-474b-b67a-8f6ae30738e7" class="bulleted-list"><li style="list-style-type:disc">Biológicas</li></ul><ul id="ed0bedfa-c5af-4d61-9e4e-54197717279b" class="bulleted-list"><li style="list-style-type:disc">Psicossociais</li></ul><ul id="2be44996-1aa4-4ccc-8649-47580e58badc" class="bulleted-list"><li style="list-style-type:disc">Culturais</li></ul><ul id="6e86296b-9caa-496d-9ca2-045a6f290e89" class="bulleted-list"><li style="list-style-type:disc">Socioeconômicos</li></ul><ul id="2e570b6f-f31a-4d94-9d85-aba2a54edeb9" class="bulleted-list"><li style="list-style-type:disc">Ambientais</li></ul><p id="bb4f5c62-3190-4823-809d-c19402e520d2" class="">
+Os principais modelos do processo saúde-doença são:</p><ul id="8fbf251a-fb9e-4dad-ac23-ba2a6292aca7" class="bulleted-list"><li style="list-style-type:disc">Modelo Miasmático ou Miasmas (Hipócrates)</li></ul><p id="a1807802-b231-4488-9690-1aa2abcc218c" class="">Extinguiu a ideia da multicausalidade, as doenças eram produto da relação complexa entre a constituição do indivíduo e o ambiente que o cerca como clima, hábitos de comer e beber. </p><ul id="4521fde1-cc20-4c3e-9c62-74e981ce5185" class="bulleted-list"><li style="list-style-type:disc">Modelo unicausal ou monocausal (Louis Pauster)</li></ul><p id="27f46491-90a7-48f5-8a6e-02ea6f61e3df" class="">Valoriza exclusivamente o agente biologico e limita-se a concepção biológica da doença como a definição de causas e mecanismos de algumas doenças importantes como tuberculose e raiva. Porém a teoria da unicausalidade não é capaz de explicar a causa de doenças  crônicas.</p><ul id="5f60ba5f-b15f-406e-8c8c-fc264f25438b" class="bulleted-list"><li style="list-style-type:disc">Modelo multicausal (Leavell &amp; Clark)</li></ul><p id="055140ce-aa71-4218-acfd-7c5aa0dc5194" class="">Leva em consideração que as doenças tem várias causas, e que elas são consequência de vários fatores como biológico, socioeconômicos e culturais. A abordagem criada por Leavell &amp; Clark tem sido muito utilizado por estudiosos para propor medidas de prevenção. Além de transcender á abordagem restrita da bacteriologia.</p><ul id="41b9a29b-9958-4980-9ccb-09ce443e4fa1" class="bulleted-list"><li style="list-style-type:disc">Teoria da determinação social da doença</li></ul><p id="4523d1bd-2efb-47db-be51-28e76223133f" class="">O contexto dessa teoria vem da subordinação do capitalismo do primeiro mundo pois teve um aumento da desigualdade social. O processo não é determinado apenas pelo fator biológico. A teoria reconhece a participação do sujeito na trama da causalidade e busca apreender a verdadeira raiz dos problemas de saúde. 
+</p><hr id="ab28a420-4f90-4583-b91e-417bd765c9bf"/><p id="e166eb49-a1eb-4f7e-ab5a-7d1515ce030a" class="">
+A história natural da doença vem das interrelações entre o agente, a pessoa suscetível e o meio ambiente que afetam o processo global e o desenvolvimento da doença. levando o homem a uma resposta desse estímulo patológico que pode levar a alterações como a um defeito, invalidez, recuperação ou morte. No caso permitiu a organização do raciocínio para o desencadeamento de ações de saúde. Com isso temos a tríade epidemiológica:</p><ul id="82b3188b-d5d4-4c16-96ef-e3b40ae7f623" class="bulleted-list"><li style="list-style-type:disc">Hospedeiro (idade e costumes)</li></ul><ul id="03416e25-a7c1-48b5-a4ee-ddd4d703ba11" class="bulleted-list"><li style="list-style-type:disc">Meio ambiente (físico e social)</li></ul><ul id="9d7af3cd-5c44-4520-94de-4c1d190044c5" class="bulleted-list"><li style="list-style-type:disc">Agente (biológico e químico)
+</li></ul><p id="b4157a12-f9c8-4797-bfe7-483bf307c495" class="">Observação: podendo ser adicionado o vetor (poderia ser um mosquito). 
+
+Além disso é importante para instruir ações que visem modificar o curso natural das doenças. Para detectar as doenças em fase mais inicial e tornar o tratamento mais eficaz ou até mesmo programas de saúde pública. Com isso vem o conceito de Iceberg em doenças infecciosas pois enquanto tem poucos obitos e casos graves já possui diversas pessoas infectadas sem motivos aparentes.
+
+Os aspectos gerais da história natural da doença vem do:</p><ul id="f0cd50b5-b364-42a1-9a4e-e99d61540530" class="bulleted-list"><li style="list-style-type:disc">Envelhecimento acelerado da população (condições e estilos de vida)</li></ul><hr id="ce7b45ea-fe2e-4734-9372-6d84f799955b"/><p id="e1dff963-8d60-41a0-a9c6-1564f17c98c4" class="">
+<span style="border-bottom:0.05em solid"><strong>Aplicabilidades do aprendizado da Epidemiologia em odontologia</strong></span>
+
+A epidemiologia possibilita a tomada de decisões para a organização das ações desenvolvidas na saúde pública. A saúde bucal significa mais do que dentes saudáveis sendo assim, realizar um levantamento epidemiológico em saúde bucal é de grande importância já que conhecendo a estatística envolvida nele, é possível fazer um melhor planejamento das necessidades odontológicas de um bairro, cidade, estado e até mesmo um país. Aplica-se ao estudo de todas as condições como por exemplo:</p><ul id="d62a14ae-5b1d-4aba-bde0-b2b646267f24" class="bulleted-list"><li style="list-style-type:disc">Ocorrencia de doenças de um modo geral (morbidade e incapacidade)</li></ul><ul id="be2ff6a7-1445-42fb-9f7a-b38652bf1237" class="bulleted-list"><li style="list-style-type:disc">Estudo de relações causais</li></ul><ul id="6b504e14-9e3c-4853-863d-f485f9c6f578" class="bulleted-list"><li style="list-style-type:disc">A distribuição, qualidade e adequação dos serviços de saúde
+</li></ul><p id="49eb7373-ebac-489e-ac0f-8bbb3a06eacc" class="">A formação em epidemiologia ajuda o cirurgião dentista a:</p><ul id="05b4e8b0-b667-4430-a09e-a36678df8ac7" class="bulleted-list"><li style="list-style-type:disc">Conhecer a situação de saúde da comunidade</li></ul><ul id="708b6463-2f6b-485b-9e57-950c0f9ff28e" class="bulleted-list"><li style="list-style-type:disc">Conhecer os fatores causais determinantes</li></ul><ul id="24691b6e-f156-4d76-9830-cd2ddd2a7e4d" class="bulleted-list"><li style="list-style-type:disc">Orientar e colaborar no planejamento e na adoção de decisões
+</li></ul><p id="4706fd29-1cf5-4281-9ae6-e9d034b3345c" class="">Especificamente na vigilância epidemilógica, as ações exercidas pelos cirurgiões dentistas são:</p><ul id="3016c620-7e27-47a4-b519-0bb2d6d9a527" class="bulleted-list"><li style="list-style-type:disc">Participar na ordenação dos dados</li></ul><ul id="ffe62e2f-d9dd-4bb6-8f90-361ff7487d18" class="bulleted-list"><li style="list-style-type:disc">Na produção de novas informações</li></ul><ul id="044bed68-f974-45ee-8a66-d201f7dff838" class="bulleted-list"><li style="list-style-type:disc">Propor novas metodologias
+</li></ul><hr id="ce45daec-ad20-4fdf-a3d2-0546860c1416"/><p id="5509c460-2943-42d1-a6bd-7efcd018590a" class="">
+</p><p id="02b7062c-1357-4238-af69-1df77c27c4dc" class=""><span style="border-bottom:0.05em solid"><strong>Estrutura epidemiológica e causalidade
+</strong></span></p><p id="84a5f694-76e6-410a-a17e-2a69744e4f67" class="">Desde a origem dos tempos, os homens estiveram interessados na pesquisa das causas. Aquilo que determina um acontecimento, a origem, o vínculo que correlaciona fenômenos e faz com que um ou vários deles apareçam como condição de existência de outro. A causalidade é um dos tipos de determinismo observados no estudo dos fatos naturais.</p><p id="307e32c2-0ea8-4cd9-80ea-76af46c4afd7" class="">
+A epidemiologia, como ciência preocupada com a frequência, a distribuição e os determinantes das doenças que acometem a população, tem desenvolvido procedimentos baseados em modelos estatatísticos que buscam identificar a etiologia das doenças.</p><ul id="8765e9ea-bd4c-464e-83e3-fe0d3e1168a9" class="bulleted-list"><li style="list-style-type:disc">Uma causa pode ser entendida como qualquer evento, condição ou característica que desempenhe uma função essencial na ocorrência da doença. já a causalidade o efeito de uma causa é sempre relativo a uma outra causa (conjuto de causas).</li></ul><ul id="c0ebea95-5964-4b17-baf9-be525b6632d7" class="bulleted-list"><li style="list-style-type:disc">Causas de doenças podem ter mecanismos patogênicos próximos ou fatores mais remotos (genéticos, ambientais e comportamentais)</li></ul><ul id="7922876b-982b-4dc6-9627-61ac646a0f91" class="bulleted-list"><li style="list-style-type:disc">As intervenções médicas para previnir ou reverter uma doença pode ocorrer em qualquer ponto do seu desenvolvimento
+</li></ul><p id="394d23c8-ab42-4cfd-8f27-379decc8f4a6" class="">As doenças tem usualmente muitas causas, embora uma possa predominar. Além de muitas causas interagem umas com as outras de modo que o risco da doença seja maior que o esperado.</p><ul id="fd46fb4c-4696-4665-90b1-a5c7e4ecd67d" class="bulleted-list"><li style="list-style-type:disc">Associação causal: a alteração na frequência de um dos eventos acarreta mudanças no outro</li></ul><ul id="8d0eda06-44ec-47bb-9794-6e0d347d2bc3" class="bulleted-list"><li style="list-style-type:disc">Associação não-causal: é aquele que pode ser explicado por um terceiro fator</li></ul><ul id="3395ceab-a91b-4c91-8a4d-98eaf3e0bc16" class="bulleted-list"><li style="list-style-type:disc">Relação dose-resposta: quanto maior a intensidade (duração) maior a gravidade da doença</li></ul><ul id="f9d6b3ab-2d99-4f40-940e-47564f2d760f" class="bulleted-list"><li style="list-style-type:disc">Especificidade: informa o quando da presença da exposição pode ser usada pra prever a doença
+</li></ul><p id="bad65530-0b1a-434f-a15d-ed341bfcdc6c" class="">Fatores de risco são características associadas a maior risco para o desenvolvimento de determinada doença. Os tipos de fatores de risco são:</p><ul id="b985a350-8b8b-481b-a869-1685ffbd2fc9" class="bulleted-list"><li style="list-style-type:disc">Hereditários</li></ul><ul id="cd18d68b-e7f2-4e4c-a438-36f3b1230748" class="bulleted-list"><li style="list-style-type:disc">Ambientais</li></ul><ul id="56387f00-33ca-4fdb-aab5-9d9e5999671c" class="bulleted-list"><li style="list-style-type:disc">Sociais
+</li></ul><hr id="ad1890be-f6c4-4a1a-b73c-5289cfe1b77a"/><p id="50124546-91a8-4bf1-b841-bac78e28aa89" class="">
+<span style="border-bottom:0.05em solid"><strong>Educação em saúde em vigilância em saúde</strong></span>
+
+A educação popular em saúde quanto a educação permanente, desenvolver processos educativos como ferramenta para capturar a realidade, problematizar e produzir mudanças estruturais. Um exemplo disso seria o SUS que buscam romper com o modelo biomédico e buscam aproximar os trabalhadores dos usuários.</p><ul id="ba89c4e8-a33b-4221-8e18-05327e7bb1a3" class="bulleted-list"><li style="list-style-type:disc">A saúde passou a ser um direito do cidadão e um dever do estado.</li></ul><ul id="a5afbb63-b9e8-45f8-9fed-460db5ecc542" class="bulleted-list"><li style="list-style-type:disc">Lei orgânica (saneamento, moradia, alimentação e educação)</li></ul><ul id="424c0e6d-d1e7-495c-9620-a0b7f31d1989" class="bulleted-list"><li style="list-style-type:disc">Ações educativas</li></ul><ul id="d992c288-e8b8-4670-afc5-a7475bf1a701" class="bulleted-list"><li style="list-style-type:disc">Nesse contexto a vigilância em saúde pode ser definida como observação contínua da distribuição e das tendências da incidência de doenças mediate coleta sistemática.
+</li></ul><p id="8f12d18f-df38-4b6e-9a7a-27d9d023157a" class="">Entretanto, percebe-se o quanto é desafiador o diálogo dos profissionais que integram as equipes de saúde familiar e da vigilância de saúde como instrumento de detecção e tomadas de decisão para minimizar, eliminar ou previnir agravos.
+</p><hr id="4d17959e-8c96-4a4e-a1ad-c434c5b09b6e"/><p id="0deffea7-7da0-4359-9b37-6e1532f00175" class="">
+<span style="border-bottom:0.05em solid"><strong>Indicadores epidemiológicos</strong></span>
+
+Os indicadores epidemiológicos expressam a relação entre o subconjunto de doentes e o conjunto de membros da população (probabilidade de ocorrencia). Porém pode indicar outras coisas como:</p><ul id="102df7d2-af4e-46c5-b30b-58d1de683acf" class="bulleted-list"><li style="list-style-type:disc">Incapacidade de acesso a serviços</li></ul><ul id="e2e8e906-b24a-44c3-acd6-9ff411787aae" class="bulleted-list"><li style="list-style-type:disc">Frequencia de casos</li></ul><ul id="da6ae0b4-2b94-4a7a-92b1-240901ef739a" class="bulleted-list"><li style="list-style-type:disc">Precisão dos sistemas de informações integrados
+</li></ul><p id="9b9ac1ea-9442-4408-b3a2-587ccb51b480" class="">Os indicadores de saúde são sensibilidade, relevância e custo-efetividade. Um dos desafios presentes são a forma de avaliar esses dados para utilizar no saneamento público.
+
+Os principais tipos de indicadores são:</p><ul id="15d80b10-fad4-45b6-af02-504bee689ff2" class="bulleted-list"><li style="list-style-type:disc">Morbidade (doenças, lesões e deficiências)</li></ul><ul id="7b4bf464-3ea8-4a49-8361-4512984db999" class="bulleted-list"><li style="list-style-type:disc">Mortalidade (número de pessoas ou seres que morrem em determinada época)</li></ul><ul id="8af10c1f-97d4-47c3-aebc-c1a48f594584" class="bulleted-list"><li style="list-style-type:disc">Fatores de risco comportamentais (estilo de vida ou escolhas comportamentais)</li></ul><ul id="728620cc-6460-4911-a091-b3d40b7cad3a" class="bulleted-list"><li style="list-style-type:disc">Serviços de saúde (instrumentos norteadores usados como um termômetro para medir como está a realidade da população frente aos dados da saúde)
+</li></ul><hr id="c9595de5-2720-4506-b62b-4fedf1e87c2e"/><p id="173244b7-2600-412c-b7ad-06995bf8287b" class="">
+<span style="border-bottom:0.05em solid"><strong>Doenças negligenciadas</strong></span>
+
+As doenças negligenciadas têm como características comuns a edemicidade elevada nas áreas rurais e nas urbanas menos favorecidas de países em desenvolvimento. Essas doenças podem prejudicar o crescimento infantil, desenvolvimento intelectual bem como a produtividade do trabalho.
+
+Organização Mundial da Saúde (OMS) foi fundada em 7 de abril de 1948, data em que se comemora o Dia Mundial da Saúde. É uma agência especializada em saúde pública, subordinada à Organização das Nações.</p><p id="737edc4e-754d-4f10-80c2-19fff2ee3320" class="">
+Organização Pan-Americana da Saúde (OPAS) trabalha com os países das Américas para melhorar a saúde e a qualidade de vida de suas populações.
+
+O Programa Sanar tem como objetivo reduzir ou eliminar enquanto problema de saúde pública as seguintes doenças transmissíveis negligenciadas: tuberculose, hanseníase, esquistossomose, doença de Chagas, leishmaniose, malária, filariose, geo-helmintíases e tracoma.
+
+Fundação Oswaldo Cruz</p><ul id="aa4f35a3-3458-4b37-845b-5b21271968dd" class="bulleted-list"><li style="list-style-type:disc">Pesquisa e desenvolvimento para doenças negligenciadas</li></ul><ul id="84d89be2-3ab6-43b6-9acc-67f283b8ebfd" class="bulleted-list"><li style="list-style-type:disc">Produção de vacinas</li></ul><ul id="c593a743-6c0a-4af5-936b-7b059f974a2d" class="bulleted-list"><li style="list-style-type:disc">Atividade de pesquisa e desenvolvimento tecnologico</li></ul><ul id="c0672d09-1529-42ea-9d55-531601711199" class="bulleted-list"><li style="list-style-type:disc">Uma das principais instituições publicas de pesquisa em saúde do mundo</li></ul></div></article></body></html>
